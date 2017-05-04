@@ -1,0 +1,113 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400)
+
+
+// Variables
+$light-theme: (background: #EEE, color: #222, link-color: #09D)
+$dark-theme: (background: #222, color: #EEE, link-color: #0DF)
+
+
+// Mixins
+@mixin select-theme($theme)
+  background: map-get($theme, 'background')
+  color: map-get($theme, 'color')
+
+  a
+    color: darken(map-get($theme, 'link-color'), 10%)
+
+  a:hover,
+  a:active
+    color: map-get($theme, 'link-color')
+
+  a::after
+    background: map-get($theme, 'link-color')
+
+  .inverse
+    background: map-get($theme, 'color')
+    color: map-get($theme, 'background')
+
+
+// Common
+*
+  box-sizing: border-box
+
+html,
+body
+  font: 16px/2 'Raleway', sans-serif
+  font-weight: 300
+  transition: all 750ms
+  animation: fadeIn 750ms
+  animation-fill-mode: forwards
+
+a
+  display: inline-block
+  position: relative
+  text-decoration: none
+  transition: all 400ms
+
+a::after,
+  position: absolute
+  left: 0
+  right: 0
+  bottom: 0
+  height: 1px
+  content: ""
+  transform: scaleX(0)
+  transition: transform 300ms
+
+a:hover::after,
+a:active::after
+  transform: scaleX(1)
+
+strong
+  font-weight: 600
+
+ul
+  list-style: none
+
+ul li
+  padding-left: 10px
+  margin-bottom: 0
+
+
+// Specific
+body.light-theme
+  @include select-theme($light-theme)
+
+body.dark-theme
+  @include select-theme($dark-theme)
+
+div.container
+  max-width: 536px
+  min-width: 350px
+
+div.social
+  a
+    font-size: 0.95rem
+    margin: 0 10px
+
+div.hero
+  margin-bottom: 2rem
+  h1
+    font-size: 5rem
+    margin: 2rem 0 1rem 0
+  p
+    line-height: 1.5
+
+a#change-theme
+  font-size: 0.8em
+
+span[class ~= "fa"]
+  margin: 0 5px
+
+
+// Helpers
+.text-center
+  text-align: center
+
+
+// Animations
+@keyframes fadeIn
+  from
+    opacity: 0
+  to
+    opacity: 1

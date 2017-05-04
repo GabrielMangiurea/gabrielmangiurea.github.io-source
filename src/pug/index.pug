@@ -1,0 +1,80 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="ie=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(name="author", content="Gabriel Mangiurea")
+		meta(name="description", content="Hello! My name is Gabriel Mangiurea and I love to build awesome things.")
+		
+		// meta(property="og:title", content="gabrielmangiurea.github.io")
+		// meta(property="og:description", content="Gabriel Mangiurea - Software developer - Bucharest, Romania")
+		// meta(property="og:type", content="website")
+		// meta(property="og:image", content="https://gabrielmangiurea.github.io/images/social-embed.png")
+		// meta(property="og:image:url", content="https://gabrielmangiurea.github.io/images/social-embed.png")
+		// meta(property="og:image:secure_url", content="https://gabrielmangiurea.github.io/images/social-embed.png")
+		// meta(property="og:url", content="https://gabrielmangiurea.github.io")
+		// meta(property="fb:app_id", content="")
+		
+		// meta(name="twitter:site", content="")
+		// meta(name="twitter:title", content="gabrielmangiurea.github.io")
+		// meta(name="twitter:description", content="Gabriel Mangiurea - Software developer - Bucharest, Romania")
+		// meta(name="twitter:image", content="https://gabrielmangiurea.github.io/images/social-embed.png")
+		
+		script(type="application/ld+json").
+			{"@context": "http://schema.org", "@type": "WebSite", "url": "https://gabrielmangiurea.github.io", "name": "Gabriel Mangiurea"}
+		script(type="application/ld+json").
+			{"@context": "http://schema.org", "@type": "Person", "url": "https://gabrielmangiurea.github.io", "name": "Gabriel Mangiurea"}
+
+		link(rel="icon", type="image/png", sizes="192x192", href="favicon.png")
+		link(rel="shortcut icon", href="favicon.png")
+		link(rel="apple-touch-icon", sizes="192x192", href="favicon.png")
+		
+		link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css")
+		link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css")
+		link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css")
+		link(rel="stylesheet", href="css/style.min.css")
+		title Gabriel Mangiurea - Software developer
+
+	body.light-theme
+		.container
+			.row
+				.column
+					a#change-theme(class="u-pull-right", href="#")
+						span.fa.fa-sun-o
+						| Too bright?
+			.row
+				.column.text-center
+					.hero
+						h1 Hello!
+						p My name is Gabriel Mangiurea.
+							br
+							| I 
+							strong love
+							| 
+							| to build 
+							strong awesome
+							| 
+							| things.
+			.row
+				.column.text-center
+					.social
+						a(href="mailto:mangiurea.gabriel@gmail.com") 
+							span(class="fa fa-envelope") 
+							| E-mail
+						a(href="https://github.com/gabrielmangiurea") 
+							span(class="fa fa-github") 
+							| Github
+						a(href="https://linkedin.com/in/gmangiurea") 
+							span(class="fa fa-linkedin") 
+							| LinkedIn
+
+		script(src="js/main.min.js")
+		script.
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+														})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-85093851-1', 'auto');
+			ga('send', 'pageview');
