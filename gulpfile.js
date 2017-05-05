@@ -12,7 +12,7 @@ const htmlLint = require('gulp-w3cjs');
 gulp.task('compile:pug', () => {
 	return gulp.src('./src/pug/*.pug')
 	.pipe(pug())
-	.pipe(gulp.dest('../gabrielmangiurea.github.io_dist'));
+	.pipe(gulp.dest('../gabrielmangiurea.github.io'));
 });
 
 gulp.task('compile:sass', () => {
@@ -24,7 +24,7 @@ gulp.task('compile:sass', () => {
 		suffix: '.min',
 		extname: '.css'
 	}))
-	.pipe(gulp.dest('../gabrielmangiurea.github.io_dist/css'));
+	.pipe(gulp.dest('../gabrielmangiurea.github.io/css'));
 });
 
 gulp.task('compile', ['compile:pug', 'compile:sass']);
@@ -37,22 +37,22 @@ gulp.task('build:js', () => {
 		suffix: '.min',
 		extname: '.js'
 	}))
-	.pipe(gulp.dest('../gabrielmangiurea.github.io_dist/js'));
+	.pipe(gulp.dest('../gabrielmangiurea.github.io/js'));
 });
 
 gulp.task('build:clean', () => {
-	del.sync(['../gabrielmangiurea.github.io_dist/*', '!../gabrielmangiurea.github.io_dist/.git'], {force: true});
+	del.sync(['../gabrielmangiurea.github.io/*', '!../gabrielmangiurea.github.io/.git'], {force: true});
 });
 
 gulp.task('build:rest', () => {
 	return gulp.src(['./src/**', '!./src/{pug,pug/**}', '!./src/{sass,sass/**}', '!./src/{js,js/**}'])
-	.pipe(gulp.dest('../gabrielmangiurea.github.io_dist'));
+	.pipe(gulp.dest('../gabrielmangiurea.github.io'));
 });
 
 gulp.task('build', ['build:clean', 'compile', 'build:js', 'build:rest']);
 
 gulp.task('lint:html', ['build'], () => {
-	return gulp.src('./../gabrielmangiurea.github.io_dist/*.html')
+	return gulp.src('./../gabrielmangiurea.github.io/*.html')
 	.pipe(htmlLint());
 });
 

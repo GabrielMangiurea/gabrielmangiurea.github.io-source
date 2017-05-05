@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400)
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600)
 
 
 // Variables
@@ -21,9 +21,11 @@ $dark-theme: (background: #222, color: #EEE, link-color: #0DF)
   a::after
     background: map-get($theme, 'link-color')
 
-  .inverse
-    background: map-get($theme, 'color')
-    color: map-get($theme, 'background')
+  .text-muted
+    color: transparentize(map-get($theme, 'color'), 0.35)
+
+  .text-error
+    background: transparentize(#F00, 0.20)
 
 
 // Common
@@ -42,20 +44,21 @@ a
   display: inline-block
   position: relative
   text-decoration: none
+  cursor: pointer
   transition: all 400ms
 
-a::after,
+a:not(.text-repo-name)::after,
   position: absolute
   left: 0
   right: 0
   bottom: 0
   height: 1px
-  content: ""
+  content: ''
   transform: scaleX(0)
   transition: transform 300ms
 
-a:hover::after,
-a:active::after
+a:not(.text-repo-name):hover::after,
+a:not(.text-repo-name):active::after
   transform: scaleX(1)
 
 strong
@@ -81,12 +84,13 @@ div.container
   min-width: 350px
 
 div.social
+  padding: 2rem 0
+
   a
     font-size: 0.95rem
     margin: 0 10px
 
 div.hero
-  margin-bottom: 2rem
   h1
     font-size: 5rem
     margin: 2rem 0 1rem 0
@@ -96,13 +100,30 @@ div.hero
 a#change-theme
   font-size: 0.8em
 
-span[class ~= "fa"]
+span[class ~= 'fa']:not(.loading)
   margin: 0 5px
+
+span.loading
+  margin-right: 0
+  animation: rotation 2s ease infinite
+
+div.last-updated-repo
+  font-size: 0.9rem
+  line-height: 1.4
+
+span.text-repo-date
+  font-size: 0.8em
+  font-style: italic
 
 
 // Helpers
 .text-center
   text-align: center
+
+.text-error
+  padding: 2px 2px
+  font-weight: bold
+  color: #FFF
 
 
 // Animations
@@ -111,3 +132,9 @@ span[class ~= "fa"]
     opacity: 0
   to
     opacity: 1
+
+@keyframes rotation
+  from
+    transform: rotate(0deg)
+  to
+    transform: rotate(360deg)
