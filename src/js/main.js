@@ -4,6 +4,15 @@
 	document.addEventListener('DOMContentLoaded', function () {
 		themeSelection();
 		fetchRepos();
+
+		// Say hi to fellow devs!
+		[
+			'Hello, fellow developer!',
+			'Source code @ Github: GabrielMangiurea/gabrielmangiurea.github.io-source',
+			'Have a great day!'
+		].forEach(function (message) {
+			console.log(message);
+		});
 	});
 })();
 
